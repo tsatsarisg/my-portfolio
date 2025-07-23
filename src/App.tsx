@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Card } from "@radix-ui/themes";
-import {
-  Github,
-  Mail,
-  ExternalLink,
-  Calendar,
-  Clock,
-  BookOpen,
-} from "lucide-react";
+import { Github, Mail, ExternalLink, BookOpen } from "lucide-react";
 import { CardContent } from "./components/ui/card";
 import { Experience } from "./sections/Experience";
 import { About } from "./sections/About";
@@ -105,41 +98,6 @@ export default function Portfolio() {
       tech: ["Vue.js", "Python", "FastAPI", "Chart.js"],
       github: "#",
       live: "#",
-    },
-  ];
-
-  const blogPosts = [
-    {
-      title: "Building Scalable React Applications",
-      excerpt:
-        "Best practices for structuring large React applications with proper state management and component architecture.",
-      date: "Dec 15, 2024",
-      readTime: "8 min read",
-      tags: ["React", "Architecture", "Best Practices"],
-    },
-    {
-      title: "Mastering TypeScript in 2024",
-      excerpt:
-        "Advanced TypeScript patterns and techniques that will make your code more robust and maintainable.",
-      date: "Nov 28, 2024",
-      readTime: "12 min read",
-      tags: ["TypeScript", "JavaScript", "Development"],
-    },
-    {
-      title: "Database Design for Modern Applications",
-      excerpt:
-        "How to design efficient database schemas for high-performance web applications with PostgreSQL.",
-      date: "Nov 10, 2024",
-      readTime: "15 min read",
-      tags: ["Database", "PostgreSQL", "Backend"],
-    },
-    {
-      title: "The Art of Code Reviews",
-      excerpt:
-        "Creating a culture of constructive code reviews that improve code quality and team collaboration.",
-      date: "Oct 22, 2024",
-      readTime: "6 min read",
-      tags: ["Code Review", "Team", "Process"],
     },
   ];
 
@@ -351,94 +309,6 @@ export default function Portfolio() {
 
       <Experience isDarkMode={isDarkMode} />
 
-      {/* Blog Section */}
-      <section
-        id="blog"
-        className={`px-6 py-16 transition-colors duration-300 ${
-          isDarkMode ? "bg-gray-800" : "bg-gray-50"
-        }`}
-      >
-        <div className="max-w-4xl mx-auto">
-          <h2
-            className={`text-3xl font-bold mb-8 text-center transition-colors duration-300 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Latest Blog Posts
-          </h2>
-          <p
-            className={`text-center mb-12 max-w-2xl mx-auto transition-colors duration-300 ${
-              isDarkMode ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            I write about web development, best practices, and lessons learned
-            from building scalable applications.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {blogPosts.map((post, index) => (
-              <Card
-                key={index}
-                className={`hover:shadow-lg transition-all duration-300 cursor-pointer ${
-                  isDarkMode
-                    ? "bg-gray-700 border-gray-600 hover:bg-gray-650"
-                    : "bg-white border-gray-200"
-                }`}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div
-                      className={`flex items-center gap-1 text-sm transition-colors duration-300 ${
-                        isDarkMode ? "text-gray-400" : "text-gray-500"
-                      }`}
-                    >
-                      <Calendar className="w-4 h-4" />
-                      {post.date}
-                    </div>
-                    <div
-                      className={`flex items-center gap-1 text-sm transition-colors duration-300 ${
-                        isDarkMode ? "text-gray-400" : "text-gray-500"
-                      }`}
-                    >
-                      <Clock className="w-4 h-4" />
-                      {post.readTime}
-                    </div>
-                  </div>
-                  <h3
-                    className={`text-xl font-semibold mb-3 transition-colors duration-300 ${
-                      isDarkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    {post.title}
-                  </h3>
-                  <p
-                    className={`mb-4 text-sm leading-relaxed transition-colors duration-300 ${
-                      isDarkMode ? "text-gray-300" : "text-gray-600"
-                    }`}
-                  >
-                    {post.excerpt}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`px-2 py-1 rounded text-xs font-medium transition-colors duration-300 ${
-                          isDarkMode
-                            ? "bg-blue-900 text-blue-200"
-                            : "bg-blue-100 text-blue-800"
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Books Section */}
       <section id="books" className="px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <h2
