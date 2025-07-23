@@ -6,11 +6,12 @@ import { Experience } from "./sections/Experience";
 import { About } from "./sections/About";
 import { Hero } from "./sections/Hero";
 import { Nav } from "./Nav";
+import { Skills } from "./sections/Skills";
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -68,12 +69,6 @@ export default function Portfolio() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const skills = {
-    frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"],
-    backend: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Express"],
-    tools: ["Git", "Docker", "AWS", "Vercel", "Figma"],
-  };
 
   const projects = [
     {
@@ -156,77 +151,7 @@ export default function Portfolio() {
       <Hero isDarkMode={isDarkMode} />
       <About isDarkMode={isDarkMode} />
 
-      {/* Skills Section */}
-      <section id="skills" className="px-6 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2
-            className={`text-3xl font-bold mb-12 text-center transition-colors duration-300 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Skills
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <h3
-                className={`text-xl font-semibold mb-4 transition-colors duration-300 ${
-                  isDarkMode ? "text-white" : "text-gray-900"
-                }`}
-              >
-                Frontend
-              </h3>
-              <div className="flex flex-wrap justify-center gap-2">
-                {skills.frontend.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="text-center">
-              <h3
-                className={`text-xl font-semibold mb-4 transition-colors duration-300 ${
-                  isDarkMode ? "text-white" : "text-gray-900"
-                }`}
-              >
-                Backend
-              </h3>
-              <div className="flex flex-wrap justify-center gap-2">
-                {skills.backend.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="text-center">
-              <h3
-                className={`text-xl font-semibold mb-4 transition-colors duration-300 ${
-                  isDarkMode ? "text-white" : "text-gray-900"
-                }`}
-              >
-                Tools
-              </h3>
-              <div className="flex flex-wrap justify-center gap-2">
-                {skills.tools.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Skills isDarkMode={isDarkMode} />
 
       {/* Projects Section */}
       <section

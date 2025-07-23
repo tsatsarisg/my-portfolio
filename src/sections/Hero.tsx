@@ -1,5 +1,5 @@
 import { Button } from "@radix-ui/themes";
-import { MapPin, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 
 export function Hero({ isDarkMode = false }) {
   return (
@@ -28,15 +28,32 @@ export function Hero({ isDarkMode = false }) {
           <span>Athens, GRE</span>
         </div>
         <div className="flex justify-center gap-4 pt-4">
-          <Button variant="outline" size="2">
-            <Github className="w-4 h-4" />
-          </Button>
-          <Button variant="outline" size="2">
-            <Linkedin className="w-4 h-4" />
-          </Button>
-          <Button variant="outline" size="2">
-            <Mail className="w-4 h-4" />
-          </Button>
+          <a
+            href="https://github.com/tsatsarisg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="outline">
+              <Github className="w-4 h-4" />
+            </Button>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tsatsarisg/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="outline">
+              <Linkedin className="w-4 h-4" />
+            </Button>
+          </a>
+          <a
+            href="mailto:tsatsarisgiorgos@gmail.com
+"
+          >
+            <Button variant="outline">
+              <Mail className="w-4 h-4" />
+            </Button>
+          </a>
         </div>
       </div>
     </section>

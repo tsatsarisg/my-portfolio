@@ -47,7 +47,6 @@ export function Nav({
               { id: "skills", label: "Skills" },
               { id: "projects", label: "Projects" },
               { id: "experience", label: "Experience" },
-              { id: "blog", label: "Blog" },
               { id: "books", label: "Books" },
               { id: "contact", label: "Contact" },
             ].map((item) => (
