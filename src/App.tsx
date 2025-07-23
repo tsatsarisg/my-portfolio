@@ -1,18 +1,7 @@
 import { useEffect, useState } from "react";
-
 import { Button, Card } from "@radix-ui/themes";
 import {
-  Coffee,
-  Code2,
-  Zap,
-  Heart,
-  Sun,
-  Moon,
-  X,
-  Menu,
-  MapPin,
   Github,
-  Linkedin,
   Mail,
   ExternalLink,
   Calendar,
@@ -20,6 +9,10 @@ import {
   BookOpen,
 } from "lucide-react";
 import { CardContent } from "./components/ui/card";
+import { Experience } from "./sections/Experience";
+import { About } from "./sections/About";
+import { Hero } from "./sections/Hero";
+import { Nav } from "./Nav";
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,14 +42,6 @@ export default function Portfolio() {
       document.documentElement.classList.remove("dark");
     }
   }, [isDarkMode]);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMenuOpen(false);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -120,30 +105,6 @@ export default function Portfolio() {
       tech: ["Vue.js", "Python", "FastAPI", "Chart.js"],
       github: "#",
       live: "#",
-    },
-  ];
-
-  const experience = [
-    {
-      title: "Senior Full Stack Developer",
-      company: "Tech Innovations Inc.",
-      period: "2022 - Present",
-      description:
-        "Led development of scalable web applications serving 100k+ users",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Digital Solutions Co.",
-      period: "2020 - 2022",
-      description:
-        "Built and maintained multiple client projects using modern web technologies",
-    },
-    {
-      title: "Frontend Developer",
-      company: "StartupXYZ",
-      period: "2019 - 2020",
-      description:
-        "Developed responsive user interfaces and improved application performance",
     },
   ];
 
@@ -221,268 +182,21 @@ export default function Portfolio() {
     },
   ];
 
-  const quickFacts = [
-    { icon: Coffee, label: "Coffee consumed", value: "∞ cups" },
-    { icon: Code2, label: "Lines of code", value: "500k+" },
-    { icon: Zap, label: "Projects completed", value: "50+" },
-    { icon: Heart, label: "Years of experience", value: "5+" },
-  ];
-
   return (
     <div
       className={`min-h-screen transition-colors duration-300 ${
         isDarkMode ? "dark bg-gray-900" : "bg-white"
       }`}
     >
-      {/* Navigation */}
-      <nav
-        className={`fixed top-0 left-0 right-0 backdrop-blur-sm border-b z-50 transition-colors duration-300 ${
-          isDarkMode
-            ? "bg-gray-900/90 border-gray-700"
-            : "bg-white/90 border-gray-200"
-        }`}
-      >
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div
-              className={`font-bold text-xl transition-colors duration-300 ${
-                isDarkMode ? "text-white" : "text-gray-900"
-              }`}
-            >
-              Alex Johnson
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              {[
-                { id: "home", label: "Home" },
-                { id: "about", label: "About" },
-                { id: "skills", label: "Skills" },
-                { id: "projects", label: "Projects" },
-                { id: "experience", label: "Experience" },
-                { id: "blog", label: "Blog" },
-                { id: "books", label: "Books" },
-                { id: "contact", label: "Contact" },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    activeSection === item.id
-                      ? "text-blue-600"
-                      : isDarkMode
-                      ? "text-gray-300"
-                      : "text-gray-600"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-
-              {/* Theme Toggle */}
-              <Button
-                variant="outline"
-                size="2"
-                onClick={toggleTheme}
-                className={`transition-colors duration-300 ${
-                  isDarkMode
-                    ? "border-gray-600 hover:bg-gray-800"
-                    : "border-gray-300 hover:bg-gray-100"
-                }`}
-              >
-                {isDarkMode ? (
-                  <Sun className="w-4 h-4" />
-                ) : (
-                  <Moon className="w-4 h-4" />
-                )}
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="2"
-                onClick={toggleTheme}
-                className={`transition-colors duration-300 ${
-                  isDarkMode
-                    ? "border-gray-600 hover:bg-gray-800"
-                    : "border-gray-300 hover:bg-gray-100"
-                }`}
-              >
-                {isDarkMode ? (
-                  <Sun className="w-4 h-4" />
-                ) : (
-                  <Moon className="w-4 h-4" />
-                )}
-              </Button>
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={isDarkMode ? "text-white" : "text-gray-900"}
-              >
-                {isMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div
-              className={`md:hidden mt-4 py-4 border-t transition-colors duration-300 ${
-                isDarkMode ? "border-gray-700" : "border-gray-200"
-              }`}
-            >
-              <div className="flex flex-col space-y-4">
-                {[
-                  { id: "home", label: "Home" },
-                  { id: "about", label: "About" },
-                  { id: "skills", label: "Skills" },
-                  { id: "projects", label: "Projects" },
-                  { id: "experience", label: "Experience" },
-                  { id: "blog", label: "Blog" },
-                  { id: "books", label: "Books" },
-                  { id: "contact", label: "Contact" },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`text-left text-sm font-medium transition-colors hover:text-blue-600 ${
-                      activeSection === item.id
-                        ? "text-blue-600"
-                        : isDarkMode
-                        ? "text-gray-300"
-                        : "text-gray-600"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="home" className="px-6 py-20 pt-32 max-w-4xl mx-auto">
-        <div className="text-center space-y-6">
-          <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-8"></div>
-          <h1
-            className={`text-5xl font-bold tracking-tight transition-colors duration-300 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Alex Johnson
-          </h1>
-          <p
-            className={`text-xl max-w-2xl mx-auto transition-colors duration-300 ${
-              isDarkMode ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            Full Stack Engineer crafting digital experiences with modern
-            technologies
-          </p>
-          <div
-            className={`flex items-center justify-center gap-2 transition-colors duration-300 ${
-              isDarkMode ? "text-gray-400" : "text-gray-500"
-            }`}
-          >
-            <MapPin className="w-4 h-4" />
-            <span>San Francisco, CA</span>
-          </div>
-          <div className="flex justify-center gap-4 pt-4">
-            <Button variant="outline" size="2">
-              <Github className="w-4 h-4" />
-            </Button>
-            <Button variant="outline" size="2">
-              <Linkedin className="w-4 h-4" />
-            </Button>
-            <Button variant="outline" size="2">
-              <Mail className="w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section
-        id="about"
-        className={`px-6 py-16 transition-colors duration-300 ${
-          isDarkMode ? "bg-gray-800" : "bg-gray-50"
-        }`}
-      >
-        <div className="max-w-4xl mx-auto">
-          <h2
-            className={`text-3xl font-bold mb-8 text-center transition-colors duration-300 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            About Me
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p
-                className={`text-lg leading-relaxed mb-6 transition-colors duration-300 ${
-                  isDarkMode ? "text-gray-300" : "text-gray-600"
-                }`}
-              >
-                I'm a passionate full stack engineer with 5+ years of experience
-                building scalable web applications. I specialize in React,
-                Node.js, and cloud technologies, with a keen eye for user
-                experience and performance optimization.
-              </p>
-              <p
-                className={`text-lg leading-relaxed transition-colors duration-300 ${
-                  isDarkMode ? "text-gray-300" : "text-gray-600"
-                }`}
-              >
-                When I'm not coding, you'll find me writing technical blogs,
-                contributing to open source projects, or exploring the great
-                outdoors. I believe in continuous learning and sharing knowledge
-                with the developer community.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {quickFacts.map((fact, index) => (
-                <Card
-                  key={index}
-                  className={`transition-colors duration-300 ${
-                    isDarkMode
-                      ? "bg-gray-700 border-gray-600"
-                      : "bg-white border-gray-200"
-                  }`}
-                >
-                  <CardContent className="p-4 text-center">
-                    <fact.icon
-                      className={`w-8 h-8 mx-auto mb-2 transition-colors duration-300 ${
-                        isDarkMode ? "text-blue-400" : "text-blue-600"
-                      }`}
-                    />
-                    <div
-                      className={`text-2xl font-bold mb-1 transition-colors duration-300 ${
-                        isDarkMode ? "text-white" : "text-gray-900"
-                      }`}
-                    >
-                      {fact.value}
-                    </div>
-                    <div
-                      className={`text-sm transition-colors duration-300 ${
-                        isDarkMode ? "text-gray-400" : "text-gray-600"
-                      }`}
-                    >
-                      {fact.label}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Nav
+        isDarkMode={isDarkMode}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        activeSection={activeSection}
+        toggleTheme={toggleTheme}
+      />
+      <Hero isDarkMode={isDarkMode} />
+      <About isDarkMode={isDarkMode} />
 
       {/* Skills Section */}
       <section id="skills" className="px-6 py-16">
@@ -635,53 +349,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="px-6 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2
-            className={`text-3xl font-bold mb-12 text-center transition-colors duration-300 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Experience
-          </h2>
-          <div className="space-y-8">
-            {experience.map((job, index) => (
-              <div
-                key={index}
-                className="border-l-2 border-blue-500 pl-6 relative"
-              >
-                <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-2 top-0"></div>
-                <div className="space-y-2">
-                  <h3
-                    className={`text-xl font-semibold transition-colors duration-300 ${
-                      isDarkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    {job.title}
-                  </h3>
-                  <div
-                    className={`flex items-center gap-2 transition-colors duration-300 ${
-                      isDarkMode ? "text-gray-300" : "text-gray-600"
-                    }`}
-                  >
-                    <span className="font-medium">{job.company}</span>
-                    <span>•</span>
-                    <span className="text-sm">{job.period}</span>
-                  </div>
-                  <p
-                    className={`transition-colors duration-300 ${
-                      isDarkMode ? "text-gray-300" : "text-gray-600"
-                    }`}
-                  >
-                    {job.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Experience isDarkMode={isDarkMode} />
 
       {/* Blog Section */}
       <section
