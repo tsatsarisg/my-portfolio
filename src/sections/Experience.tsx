@@ -37,7 +37,12 @@ export function Experience({ isDarkMode = false }) {
   ];
 
   return (
-    <section id="experience" className="px-6 py-16">
+    <section
+      id="experience"
+      className={`px-6 py-16 transition-colors duration-300 ${
+        isDarkMode ? "bg-gray-800" : "bg-gray-50"
+      }`}
+    >
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <h2

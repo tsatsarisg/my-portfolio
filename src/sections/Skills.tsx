@@ -35,7 +35,12 @@ export function Skills({ isDarkMode = false }) {
   };
 
   return (
-    <section id="skills" className="px-6 py-16">
+    <section
+      id="skills"
+      className={`px-6 py-16 transition-colors duration-300 ${
+        isDarkMode ? "bg-gray-900" : "bg-gray-50"
+      }`}
+    >
       <div className="max-w-4xl mx-auto">
         <h2
           className={`text-3xl font-bold mb-12 text-center transition-colors duration-300 ${
