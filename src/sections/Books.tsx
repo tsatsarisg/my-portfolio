@@ -5,9 +5,21 @@ import { ArrowRight, BookOpen } from "lucide-react";
 export function Books({ isDarkMode = false }) {
   const books = [
     {
+      title: "The Pragmatic Programmer",
+      author: "David Thomas & Andrew Hunt",
+      description: "Your journey to mastery",
+      category: "Career",
+    },
+    {
       title: "Clean Code",
       author: "Robert C. Martin",
       description: "A handbook of agile software craftsmanship",
+      category: "Programming",
+    },
+    {
+      title: "Refactoring",
+      author: "Martin Fowler",
+      description: "Improving the Design of Existing Code",
       category: "Programming",
     },
     {
@@ -17,28 +29,17 @@ export function Books({ isDarkMode = false }) {
       category: "System Design",
     },
     {
-      title: "You Don't Know JS",
-      author: "Kyle Simpson",
-      description: "Deep dive into JavaScript fundamentals",
-      category: "JavaScript",
-    },
-    {
-      title: "Designing Data-Intensive Applications",
-      author: "Martin Kleppmann",
-      description: "The big ideas behind reliable, scalable systems",
+      title: "Domain-Driven Design",
+      author: "Eric Evans",
+      description: "Tackling Complexity in the Heart of Software",
       category: "Architecture",
     },
     {
-      title: "The Pragmatic Programmer",
-      author: "David Thomas & Andrew Hunt",
-      description: "Your journey to mastery",
-      category: "Career",
-    },
-    {
-      title: "Atomic Habits",
-      author: "James Clear",
-      description: "An easy & proven way to build good habits",
-      category: "Personal Development",
+      title: "Head First Design Patterns",
+      author: "Eric Freeman & Elisabeth Robson",
+      description:
+        "Building Extensible and Maintainable Object-Oriented Software",
+      category: "Architecture",
     },
   ];
 
