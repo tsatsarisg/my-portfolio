@@ -1,15 +1,15 @@
 import { CardContent } from "@/components/ui/card";
-import { books } from "@/data/data";
+import { courses } from "@/data/data";
 import { Button, Card } from "@radix-ui/themes";
-import { BookOpen } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { Link } from "react-router";
 
-export function Books({ isDarkMode = false }) {
+export function Courses({ isDarkMode = false }) {
   return (
     <section
-      id="books"
+      id="courses"
       className={`px-6 py-16 transition-colors duration-300 ${
-        isDarkMode ? "bg-gray-800" : "bg-gray-50"
+        isDarkMode ? "bg-gray-900" : "bg-white"
       }`}
     >
       <div className="max-w-4xl mx-auto">
@@ -18,18 +18,19 @@ export function Books({ isDarkMode = false }) {
             isDarkMode ? "text-white" : "text-gray-900"
           }`}
         >
-          Recommended Books
+          Completed Courses
         </h2>
         <p
           className={`text-center mb-12 max-w-2xl mx-auto transition-colors duration-300 ${
             isDarkMode ? "text-gray-300" : "text-gray-600"
           }`}
         >
-          Books that have shaped my thinking as a developer and continue to
-          influence my approach to building software.
+          Online courses and certifications that have helped me grow as a
+          software engineer.
         </p>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {books.slice(0, 6).map((book, index) => (
+          {courses.slice(0, 6).map((course, index) => (
             <Card
               key={index}
               className={`hover:shadow-lg transition-all duration-300 ${
@@ -40,9 +41,9 @@ export function Books({ isDarkMode = false }) {
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-3 mb-3">
-                  <BookOpen
+                  <GraduationCap
                     className={`w-5 h-5 mt-1 flex-shrink-0 transition-colors duration-300 ${
-                      isDarkMode ? "text-blue-400" : "text-blue-600"
+                      isDarkMode ? "text-green-400" : "text-green-600"
                     }`}
                   />
                   <div>
@@ -51,14 +52,14 @@ export function Books({ isDarkMode = false }) {
                         isDarkMode ? "text-white" : "text-gray-900"
                       }`}
                     >
-                      {book.title}
+                      {course.title}
                     </h3>
                     <p
                       className={`text-sm mb-2 transition-colors duration-300 ${
                         isDarkMode ? "text-gray-300" : "text-gray-600"
                       }`}
                     >
-                      by {book.author}
+                      {course.instructor}
                     </p>
                   </div>
                 </div>
@@ -67,16 +68,16 @@ export function Books({ isDarkMode = false }) {
                     isDarkMode ? "text-gray-300" : "text-gray-600"
                   }`}
                 >
-                  {book.description}
+                  {course.description}
                 </p>
                 <span
                   className={`inline-block px-2 py-1 rounded text-xs font-medium transition-colors duration-300 ${
                     isDarkMode
-                      ? "bg-blue-900 text-blue-200"
-                      : "bg-blue-100 text-blue-800"
+                      ? "bg-green-900 text-green-200"
+                      : "bg-green-100 text-green-800"
                   }`}
                 >
-                  {book.category}
+                  {course.category}
                 </span>
               </CardContent>
             </Card>
@@ -84,9 +85,9 @@ export function Books({ isDarkMode = false }) {
         </div>
 
         <div className="text-center mt-12">
-          <Link to="/books">
+          <Link to="/courses">
             <Button variant="outline" size="2">
-              View All Books
+              View All Courses
             </Button>
           </Link>
         </div>

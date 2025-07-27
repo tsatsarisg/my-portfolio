@@ -32,7 +32,7 @@ export function Projects({ isDarkMode = false }) {
     <section
       id="projects"
       className={`px-6 py-16 transition-colors duration-300 ${
-        isDarkMode ? "bg-gray-900" : "bg-gray-50"
+        isDarkMode ? "bg-gray-900" : "bg-white"
       }`}
     >
       <div className="max-w-4xl mx-auto">
