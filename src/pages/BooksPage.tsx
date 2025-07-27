@@ -81,42 +81,27 @@ export default function BooksPage() {
         isDarkMode ? "dark bg-gray-900" : "bg-white"
       }`}
     >
-      {/* Header */}
       <header
-        className={`sticky top-0 backdrop-blur-sm border-b z-50 transition-colors duration-300 ${
+        className={`sticky top-0 border-b ${
           isDarkMode
-            ? "bg-gray-900/90 border-gray-700"
-            : "bg-white/90 border-gray-200 text-black"
+            ? "bg-gray-900 border-gray-700"
+            : "bg-white border-gray-200"
         }`}
       >
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link
-            to="/"
-            className={`text-2xl font-bold transition-colors duration-300 ${
+          <Link to="/">
+            <Button variant="outline">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back
+            </Button>
+          </Link>
+          <h1
+            className={`text-xl font-bold ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}
           >
-            <Button variant="outline" size="2" color="gray">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Portfolio
-            </Button>
-          </Link>
-          <div>
-            <h1
-              className={`text-2xl font-bold transition-colors duration-300 ${
-                isDarkMode ? "text-white" : "text-gray-900"
-              }`}
-            >
-              My Library
-            </h1>
-            <p
-              className={`text-sm transition-colors duration-300 ${
-                isDarkMode ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              Books that shape my thinking as a developer
-            </p>
-          </div>
+            My Books
+          </h1>
         </div>
       </header>
 
