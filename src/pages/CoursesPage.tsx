@@ -14,16 +14,14 @@ export default function CoursesPage() {
   const categories = ["All", ...new Set(courses.map((c) => c.category))];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredCourses = courses
-    .filter((course) => {
-      const matchesSearch =
-        course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        course.instructor.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory =
-        selectedCategory === "All" || course.category === selectedCategory;
-      return matchesSearch && matchesCategory;
-    })
-    .slice(0, 6); // ✅ show only first 6 courses
+  const filteredCourses = courses.filter((course) => {
+    const matchesSearch =
+      course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.instructor.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || course.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div
