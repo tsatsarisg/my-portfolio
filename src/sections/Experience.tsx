@@ -14,15 +14,15 @@ export function Experience({ isDarkMode = false }) {
       company: "Hellenic Republic Ministry Of National Defence",
       period: "Oct 2024 - Sept 2025",
       description:
-        "During my military service, I was part of the Web Services Department, where I was responsible for fixing bugs and implementing feature improvements in the software. I actively contributed to enhancing the internal AI chatbot, which was developed for organizational use.",
-      technologies: ["React", "Python", "Flask", "Docker", "Redis", "PHP"],
+        "During my military service, served in the Web Services Department, where I was responsible for resolving critical issues, implementing new features, and improving the functionality of the ministry’s internal web applications. Contributed to the enhancement of the ministry’s custom internal chatbot and leveraged my professional experience to suggest and implement infrastructure improvements that increased system reliability and maintainability.",
+      technologies: ["React", "LLM", "Flask", "Docker", "Redis", "PHP"],
     },
     {
       title: "Full Stack Developer",
       company: "Upstream",
       period: "Apr 2022 - Oct 2024",
       description:
-        "Been part of the E-commerce team which developed an in house SaaS platform for campaigns creation through an interface, supported sms text automations, leads management and consuming third party APIs. Actively contributed and been responsible for code reviews, solution investigations, designs and implementation. ",
+        "Part of the E-commerce team developing an in-house SaaS platform for campaign creation, SMS automation, lead management, third-party API integrations, and advanced campaign performance tools including dashboards, event-based analytics, and visitor tracking. Delivered key features end-to-end — from design to deployment — and contributed to code reviews, solution investigations, and the implementation of scalable, maintainable code.",
       technologies: [
         "Typescript",
         "HTML5",
@@ -32,6 +32,9 @@ export function Experience({ isDarkMode = false }) {
         "React",
         "MongoDB",
         "Kafka",
+        "ElasticSearch",
+        "TDD",
+        "DDD",
       ],
     },
   ];

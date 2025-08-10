@@ -21,20 +21,12 @@ export function About({ isDarkMode = false }) {
                   isDarkMode ? "text-gray-300" : "text-gray-600"
                 }`}
               >
-                I have a bachelors degree in Computer Science from AUEB and I
-                work as a full stack developer.
-              </p>
-              <p
-                className={`text-lg mb-6 transition-colors duration-300 ${
-                  isDarkMode ? "text-gray-300" : "text-gray-600"
-                }`}
-              >
-                Utilizing my experience and rigorous studies, I've honed a
-                proficiency in methodologies such as clean code(refactoring),
+                I hold a B.Sc. in Informatics from AUEB and work as a full-stack
+                engineer. Combining professional experience with a solid
+                academic foundation, I apply clean code principles,
                 Domain-Driven Design (DDD), Ports and Adapters architecture, and
-                thorough testing. This expertise empowers me to consistently
-                implement high-quality, scalable solutions, prioritizing
-                maintainability and efficiency.
+                rigorous testing practices to deliver high-quality, scalable,
+                and maintainable solutions.
               </p>
             </div>
 
@@ -52,7 +44,7 @@ export function About({ isDarkMode = false }) {
                     isDarkMode ? "text-gray-300" : "text-gray-600"
                   }`}
                 >
-                  <li>🎓 Computer Science Degree</li>
+                  <li>🎓 Informatics Degree</li>
                   <li>💼 4 Years Experience</li>
                   <li>🌍 Based in Athens, GRE</li>
                   <li>🚀 200+ MRS Delivered</li>

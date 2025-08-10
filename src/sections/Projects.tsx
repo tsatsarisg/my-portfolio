@@ -5,29 +5,26 @@ import { Github, ExternalLink } from "lucide-react";
 export function Projects({ isDarkMode = false }) {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Agrohands",
       description:
-        "Full-stack e-commerce solution with React, Node.js, and Stripe integration",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates",
-      tech: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Analytics Dashboard",
-      description:
-        "Data visualization dashboard with interactive charts and filters",
-      tech: ["Vue.js", "Python", "FastAPI", "Chart.js"],
+        "Full-stack web application designed to connect agricultural employers with available workers. The platform enables farm owners, contractors, and agribusinesses to post job listings with detailed requirements, pay rates, and location information, while allowing workers to create profiles showcasing their skills, availability, and experience.",
+      tech: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "CQRS",
+        "DDD",
+        "Docker",
+        "Tailwind CSS",
+        "TypeScript",
+        "Result Pattern",
+        "Eslint",
+      ],
       github: "#",
       live: "#",
     },
   ];
+
   return (
     <section
       id="projects"
@@ -43,7 +40,13 @@ export function Projects({ isDarkMode = false }) {
         >
           Featured Projects
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          className={
+            projects.length === 1
+              ? "flex justify-center"
+              : "grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          }
+        >
           {projects.map((project, index) => (
             <Card
               key={index}
