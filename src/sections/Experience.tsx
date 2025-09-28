@@ -10,7 +10,15 @@ import { Badge } from "@/components/ui/badge";
 export function Experience({ isDarkMode = false }) {
   const experiences = [
     {
-      title: "Full Stack Developer",
+      title: "Mid Level Software Engineer",
+      company: "Tashita",
+      period: "May 2025 - Present",
+      description:
+        "I am currently working as a mid-level software engineer at Tashita.",
+      technologies: ["NestJs", "TypeScript", "MongoDB",  "Docker", "DDD"],
+    },
+    {
+      title: "Software Engineer",
       company: "Hellenic Republic Ministry Of National Defence",
       period: "Oct 2024 - Sept 2025",
       description:
@@ -18,9 +26,9 @@ export function Experience({ isDarkMode = false }) {
       technologies: ["React", "LLM", "Flask", "Docker", "Redis", "PHP"],
     },
     {
-      title: "Full Stack Developer",
+      title: "Junior Software Engineer",
       company: "Upstream",
-      period: "Apr 2022 - Oct 2024",
+      period: "Apr 2022 - Sept 2024",
       description:
         "Part of the E-commerce team developing an in-house SaaS platform for campaign creation, SMS automation, lead management, third-party API integrations, and advanced campaign performance tools including dashboards, event-based analytics, and visitor tracking. Delivered key features end-to-end — from design to deployment — and contributed to code reviews, solution investigations, and the implementation of scalable, maintainable code.",
       technologies: [
