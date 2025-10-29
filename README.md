@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# my-portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository is a personal portfolio website built with Vite, React, and TypeScript. It showcases projects, recommended books, courses, and other sections implemented with Tailwind CSS and Radix UI components.
 
-Currently, two official plugins are available:
+Key points
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Purpose: serve as a developer portfolio and showcase selected work and resources.
+- Theme: the site is dark-first. The light/white theme has been removed — the UI and documentation reflect a dark-only experience.
+- Routing: client-side routing with a ScrollToTop component that scrolls to the top on navigation.
 
-## Expanding the ESLint configuration
+Tech stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Vite
+- React (TypeScript)
+- Tailwind CSS
+- @radix-ui/themes
+- lucide-react (icons)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Local development
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. Install dependencies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Run the dev server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+3. Build for production
+
+```bash
+npm run build
+```
+
+4. Preview the production build locally
+
+```bash
+npm run preview
+```
+
+Notes for maintainers
+
+- The project intentionally uses a dark-only theme. If you want to reintroduce a light theme, search for theme-related classes and the theme toggle component (e.g. `toggleTheme` in `App.tsx`) and re-add styles and state that control the light variant.
+- Navigation includes a small `ScrollToTop` helper (see `src/ScrollToTop.tsx`) — it ensures pages start at the top when users navigate.
+
+License
+
+This repository is provided as-is. Add a license file if you want to publish it under a specific license.

@@ -17,7 +17,8 @@ export function Hero({ isDarkMode = false }) {
             isDarkMode ? "text-gray-300" : "text-gray-600"
           }`}
         >
-          Full Stack Engineer
+          Founding Software Engineer | Backend Architecture & API Development |
+          Node.js - TypeScript - React
         </p>
         <div
           className={`flex items-center justify-center gap-2 transition-colors duration-300 ${
