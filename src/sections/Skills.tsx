@@ -16,6 +16,7 @@ export function Skills({ isDarkMode = false }) {
       "MongoDB",
       "Express",
       "GO",
+      "DotNet",
       "Kafka",
       "Redis",
       "Jest",

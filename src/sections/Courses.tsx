@@ -2,7 +2,7 @@ import { CardContent } from "@/components/ui/card";
 import { courses } from "@/data/data";
 import { Button, Card } from "@radix-ui/themes";
 import { GraduationCap } from "lucide-react";
-import { Link } from "react-router";
+import Link from "next/link";
 
 export function Courses({ isDarkMode = false }) {
   return (
@@ -85,7 +85,7 @@ export function Courses({ isDarkMode = false }) {
         </div>
 
         <div className="text-center mt-12">
-          <Link to="/courses">
+          <Link href="/courses">
             <Button variant="outline" size="2">
               View All Courses
             </Button>

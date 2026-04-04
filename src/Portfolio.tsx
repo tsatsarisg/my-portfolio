@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Button } from "@radix-ui/themes";
 import { Mail } from "lucide-react";
@@ -120,7 +122,7 @@ export default function Portfolio() {
         }`}
       >
         <p>
-          &copy; 2025 George Tsatsaris. Built with React, Vite and Tailwind CSS.
+          &copy; 2025 George Tsatsaris. Built with React, Next.js and Tailwind CSS.
         </p>
       </footer>
     </div>

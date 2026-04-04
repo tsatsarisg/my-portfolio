@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router";
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import { courses } from "@/data/data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,8 +10,14 @@ import { ArrowLeft, Search, Tag, User } from "lucide-react";
 
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const savedTheme = localStorage.getItem("theme");
-  const isDarkMode = savedTheme === "dark";
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === "dark");
+    }
+  }, []);
 
   const categories = ["All", ...new Set(courses.map((c) => c.category))];
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -36,7 +44,7 @@ export default function CoursesPage() {
         }`}
       >
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/">
+          <Link href="/">
             <Button variant="outline">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back

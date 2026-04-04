@@ -1,3 +1,5 @@
+"use client";
+
 import { CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { books } from "@/data/data";
@@ -11,15 +13,21 @@ import {
   Tag,
   User,
 } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function BooksPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState("All");
-  const savedTheme = localStorage.getItem("theme");
-  const isDarkMode = savedTheme === "dark";
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === "dark");
+    }
+  }, []);
 
   const categories = ["All", ...new Set(books.map((book) => book.category))];
   const statuses = ["All", "Read", "Currently Reading", "Want to Read"];
@@ -89,7 +97,7 @@ export default function BooksPage() {
         }`}
       >
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/">
+          <Link href="/">
             <Button variant="outline">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back

@@ -2,7 +2,7 @@ import { CardContent } from "@/components/ui/card";
 import { books } from "@/data/data";
 import { Button, Card } from "@radix-ui/themes";
 import { BookOpen } from "lucide-react";
-import { Link } from "react-router";
+import Link from "next/link";
 
 export function Books({ isDarkMode = false }) {
   return (
@@ -84,7 +84,7 @@ export function Books({ isDarkMode = false }) {
         </div>
 
         <div className="text-center mt-12">
-          <Link to="/books">
+          <Link href="/books">
             <Button variant="outline" size="2">
               View All Books
             </Button>
