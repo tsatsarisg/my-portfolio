@@ -13,21 +13,18 @@ import {
   Tag,
   User,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function BooksPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState("All");
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
-  }, []);
+  const [isDarkMode] = useState(() => {
+    if (typeof window === "undefined") return true;
+    const saved = localStorage.getItem("theme");
+    return saved ? saved === "dark" : true;
+  });
 
   const categories = ["All", ...new Set(books.map((book) => book.category))];
   const statuses = ["All", "Read", "Currently Reading", "Want to Read"];
@@ -432,7 +429,7 @@ export default function BooksPage() {
                         isDarkMode ? "text-gray-300" : "text-gray-600"
                       }`}
                     >
-                      "{book.review}"
+                      &ldquo;{book.review}&rdquo;
                     </p>
                   </div>
                 )}

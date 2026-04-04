@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { courses } from "@/data/data";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,14 +10,11 @@ import { ArrowLeft, Search, Tag, User } from "lucide-react";
 
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
-  }, []);
+  const [isDarkMode] = useState(() => {
+    if (typeof window === "undefined") return true;
+    const saved = localStorage.getItem("theme");
+    return saved ? saved === "dark" : true;
+  });
 
   const categories = ["All", ...new Set(courses.map((c) => c.category))];
   const [selectedCategory, setSelectedCategory] = useState("All");

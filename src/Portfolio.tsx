@@ -15,19 +15,15 @@ import { Courses } from "./sections/Courses";
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === "undefined") return true;
+    const saved = localStorage.getItem("theme");
+    return saved ? saved === "dark" : true;
+  });
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
-
-  useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
-  }, []);
 
   useEffect(() => {
     // Save theme preference
@@ -102,10 +98,10 @@ export default function Portfolio() {
         }`}
       >
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Let's Work Together</h2>
+          <h2 className="text-3xl font-bold mb-6">Let&apos;s Work Together</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and exciting projects.
-            Let's connect and discuss how we can bring your ideas to life.
+            I&apos;m always interested in new opportunities and exciting projects.
+            Let&apos;s connect and discuss how we can bring your ideas to life.
           </p>
           <Button size="3" className="bg-blue-600 hover:bg-blue-700">
             <Mail className="w-4 h-4 mr-2" />
