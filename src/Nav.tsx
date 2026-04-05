@@ -1,19 +1,27 @@
-import { Button } from "@radix-ui/themes";
+"use client";
+
+import { useState } from "react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
 import { Sun, Moon, X, Menu } from "lucide-react";
 
-export function Nav({
-  isDarkMode = false,
-  setIsMenuOpen,
-  isMenuOpen,
-  activeSection,
-  toggleTheme,
-}: {
-  isDarkMode?: boolean;
-  setIsMenuOpen: (value: boolean) => void;
-  isMenuOpen: boolean;
-  activeSection: string;
-  toggleTheme: () => void;
-}) {
+const NAV_ITEMS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "books", label: "Books" },
+  { id: "courses", label: "Courses" },
+  { id: "contact", label: "Contact" },
+];
+
+export function Nav({ activeSection }: { activeSection: string }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -21,66 +29,42 @@ export function Nav({
     }
     setIsMenuOpen(false);
   };
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 backdrop-blur-sm border-b z-50 transition-colors duration-300 ${
-        isDarkMode
-          ? "bg-gray-900/90 border-gray-700"
-          : "bg-white/90 border-gray-200"
-      }`}
+      aria-label="Main navigation"
+      className="fixed top-0 left-0 right-0 backdrop-blur-md border-b z-50 bg-white/90 dark:bg-gray-900/90 border-gray-200 dark:border-gray-700"
     >
-      <div className="max-w-4xl mx-auto px-6 py-4">
+      <div className="max-w-5xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div
-            className={`font-bold text-xl transition-colors duration-300 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
+          <div className="font-bold text-xl text-gray-900 dark:text-white">
             George Tsatsaris
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {[
-              { id: "home", label: "Home" },
-              { id: "about", label: "About" },
-              { id: "skills", label: "Skills" },
-              { id: "experience", label: "Experience" },
-              { id: "projects", label: "Projects" },
-              { id: "books", label: "Books" },
-              { id: "contact", label: "Contact" },
-            ].map((item) => (
+            {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                className={`text-sm font-medium transition-colors hover:text-blue-600 py-2 ${
                   activeSection === item.id
                     ? "text-blue-600"
-                    : isDarkMode
-                    ? "text-gray-300"
-                    : "text-gray-600"
+                    : "text-gray-600 dark:text-gray-300"
                 }`}
               >
                 {item.label}
               </button>
             ))}
 
-            {/* Theme Toggle */}
             <Button
               variant="outline"
-              size="2"
+              size="icon"
               onClick={toggleTheme}
-              className={`transition-colors duration-300 ${
-                isDarkMode
-                  ? "border-gray-600 hover:bg-gray-800"
-                  : "border-gray-300 hover:bg-gray-100"
-              }`}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             >
-              {isDarkMode ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
+              <Sun className="w-4 h-4 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute w-4 h-4 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
             </Button>
           </div>
 
@@ -88,23 +72,18 @@ export function Nav({
           <div className="md:hidden flex items-center gap-2">
             <Button
               variant="outline"
-              size="2"
+              size="icon"
               onClick={toggleTheme}
-              className={`transition-colors duration-300 ${
-                isDarkMode
-                  ? "border-gray-600 hover:bg-gray-800"
-                  : "border-gray-300 hover:bg-gray-100"
-              }`}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             >
-              {isDarkMode ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
+              <Sun className="w-4 h-4 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute w-4 h-4 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
             </Button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={isDarkMode ? "text-white" : "text-gray-900"}
+              className="text-gray-900 dark:text-white p-2"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -117,31 +96,16 @@ export function Nav({
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div
-            className={`md:hidden mt-4 py-4 border-t transition-colors duration-300 ${
-              isDarkMode ? "border-gray-700" : "border-gray-200"
-            }`}
-          >
+          <div className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-4">
-              {[
-                { id: "home", label: "Home" },
-                { id: "about", label: "About" },
-                { id: "skills", label: "Skills" },
-                { id: "projects", label: "Projects" },
-                { id: "experience", label: "Experience" },
-                { id: "blog", label: "Blog" },
-                { id: "books", label: "Books" },
-                { id: "contact", label: "Contact" },
-              ].map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-sm font-medium transition-colors hover:text-blue-600 ${
+                  className={`text-left text-sm font-medium transition-colors hover:text-blue-600 py-2 ${
                     activeSection === item.id
                       ? "text-blue-600"
-                      : isDarkMode
-                      ? "text-gray-300"
-                      : "text-gray-600"
+                      : "text-gray-600 dark:text-gray-300"
                   }`}
                 >
                   {item.label}

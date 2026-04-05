@@ -1,132 +1,74 @@
-export function Skills({ isDarkMode = false }) {
-  const skills = {
-    frontend: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Vite",
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-    ],
-    backend: [
-      "Node.js",
-      "NestJs",
-      "MongoDB",
-      "Express",
-      "GO",
-      "DotNet",
-      "Kafka",
-      "Redis",
-      "Jest",
-    ],
-    tools: ["Git", "Docker", "Figma", "Postman", "Jira", "Linux"],
-    methodologies: [
-      "DDD",
-      "CQRS",
-      "Clean Code",
-      "Kanban",
-      "TDD",
-      "CI/CD",
-      "Scrum",
-      "Microservices",
-      "Event-Driven Architecture",
-    ],
-  };
+const skills = {
+  frontend: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Vite",
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+  ],
+  backend: [
+    "Node.js",
+    "NestJs",
+    "MongoDB",
+    "Express",
+    "GO",
+    "DotNet",
+    "Kafka",
+    "Redis",
+    "Jest",
+  ],
+  tools: ["Git", "Docker", "Figma", "Postman", "Jira", "Linux"],
+  methodologies: [
+    "DDD",
+    "CQRS",
+    "Clean Code",
+    "Kanban",
+    "TDD",
+    "CI/CD",
+    "Scrum",
+    "Microservices",
+    "Event-Driven Architecture",
+  ],
+};
 
+const categories = [
+  { key: "frontend" as const, label: "Frontend", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200" },
+  { key: "backend" as const, label: "Backend", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200" },
+  { key: "tools" as const, label: "Tools", color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200" },
+  { key: "methodologies" as const, label: "Methodologies", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200" },
+];
+
+export function Skills() {
   return (
     <section
       id="skills"
-      className={`px-6 py-16 transition-colors duration-300 ${
-        isDarkMode ? "bg-gray-900" : "bg-white"
-      }`}
+      className="px-6 py-16 bg-white dark:bg-gray-900"
     >
-      <div className="max-w-4xl mx-auto">
-        <h2
-          className={`text-3xl font-bold mb-12 text-center transition-colors duration-300 ${
-            isDarkMode ? "text-white" : "text-gray-900"
-          }`}
-        >
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">
           Skills
         </h2>
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <h3
-              className={`text-xl font-semibold mb-4 transition-colors duration-300 ${
-                isDarkMode ? "text-white" : "text-gray-900"
-              }`}
-            >
-              Frontend
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {skills.frontend.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {categories.map(({ key, label, color }) => (
+            <div key={key} className="text-center">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+                {label}
+              </h3>
+              <div className="flex flex-wrap justify-center gap-2">
+                {skills[key].map((skill) => (
+                  <span
+                    key={skill}
+                    className={`px-3 py-1 rounded-full text-sm font-medium ${color}`}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="text-center">
-            <h3
-              className={`text-xl font-semibold mb-4 transition-colors duration-300 ${
-                isDarkMode ? "text-white" : "text-gray-900"
-              }`}
-            >
-              Backend
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {skills.backend.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="text-center">
-            <h3
-              className={`text-xl font-semibold mb-4 transition-colors duration-300 ${
-                isDarkMode ? "text-white" : "text-gray-900"
-              }`}
-            >
-              Tools
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {skills.tools.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="text-center">
-            <h3
-              className={`text-xl font-semibold mb-4 transition-colors duration-300 ${
-                isDarkMode ? "text-white" : "text-gray-900"
-              }`}
-            >
-              Methodologies
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {skills.methodologies.map((method) => (
-                <span
-                  key={method}
-                  className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium"
-                >
-                  {method}
-                </span>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
