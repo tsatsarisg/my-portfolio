@@ -6,34 +6,41 @@ const experiences = [
     title: "Founding Backend Software Engineer",
     company: "Tashita Software Security",
     period: "May 2025 - Present",
-    description:
-      "I am currently working as a founding backend software engineer at Tashita Software Security.",
+    bullets: [
+      "Architecting the backend infrastructure of a cybersecurity SaaS product from the ground up",
+      "Defining API contracts, data models, and service boundaries using DDD and Ports & Adapters",
+      "Setting up CI/CD pipelines, containerisation, and deployment workflows",
+    ],
     technologies: [] as string[],
   },
   {
     title: "Software Engineer",
     company: "Hellenic Republic Ministry Of National Defence",
     period: "Oct 2024 - Sept 2025",
-    description:
-      "During my military service, served in the Web Services Department, where I was responsible for resolving critical issues, implementing new features, and improving the functionality of the ministry's internal web applications. Contributed to the enhancement of the ministry's custom internal chatbot and leveraged my professional experience to suggest and implement infrastructure improvements that increased system reliability and maintainability.",
+    bullets: [
+      "Resolved critical issues and shipped new features across the ministry's internal web applications",
+      "Enhanced an internal LLM-powered chatbot, improving response quality and system reliability",
+      "Proposed and implemented infrastructure improvements that increased system maintainability",
+    ],
     technologies: ["React", "LLM", "Flask", "Docker", "Redis", "PHP"],
   },
   {
     title: "Full Stack Software Engineer",
     company: "Upstream",
     period: "Apr 2022 - Oct 2024",
-    description:
-      "Part of the E-commerce team developing an in-house SaaS platform for campaign creation, SMS automation, lead management, third-party API integrations, and advanced campaign performance tools including dashboards, event-based analytics, and visitor tracking. Delivered key features end-to-end — from design to deployment — and contributed to code reviews, solution investigations, and the implementation of scalable, maintainable code.",
+    bullets: [
+      "Built core features of an in-house SaaS platform for SMS campaign creation, lead management, and event-based analytics — end-to-end from design to deployment",
+      "Integrated third-party APIs and delivered advanced dashboards and visitor-tracking tooling used by multiple enterprise clients",
+      "Championed DDD and TDD practices, contributed to architecture decisions, and led code reviews across the team",
+    ],
     technologies: [
       "Typescript",
-      "HTML5",
-      "CSS3",
       "NodeJs",
-      "Docker",
       "React",
       "MongoDB",
       "Kafka",
       "ElasticSearch",
+      "Docker",
       "TDD",
       "DDD",
     ],
@@ -42,10 +49,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section
-      id="experience"
-      className="px-6 py-16 bg-gray-50 dark:bg-gray-800"
-    >
+    <section id="experience" className="px-6 py-16 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">
@@ -74,31 +78,28 @@ export function Experience() {
 
                     {/* Content */}
                     <div className="md:w-1/2 pl-8 md:pl-0">
-                      <div
-                        className={`${
-                          index % 2 === 0
-                            ? "md:pr-12"
-                            : "md:pl-12"
-                        }`}
-                      >
+                      <div className={index % 2 === 0 ? "md:pr-12" : "md:pl-12"}>
                         <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
-                          <div className="flex flex-col gap-2 mb-3">
-                            <Badge
-                              variant="outline"
-                              className="w-fit text-xs"
-                            >
+                          <div className="flex flex-col gap-2 mb-4">
+                            <Badge variant="outline" className="w-fit text-xs">
                               {exp.period}
                             </Badge>
-                            <h3 className="text-xl font-semibold">
-                              {exp.title}
-                            </h3>
-                            <p className="text-lg font-medium text-foreground">
+                            <h3 className="text-xl font-semibold">{exp.title}</h3>
+                            <p className="text-base font-medium text-muted-foreground">
                               {exp.company}
                             </p>
                           </div>
-                          <p className="text-muted-foreground mb-4 text-sm">
-                            {exp.description}
-                          </p>
+                          <ul className="space-y-2 mb-4">
+                            {exp.bullets.map((bullet) => (
+                              <li
+                                key={bullet}
+                                className="flex gap-2 text-sm text-muted-foreground"
+                              >
+                                <span className="text-primary mt-0.5 shrink-0">▸</span>
+                                {bullet}
+                              </li>
+                            ))}
+                          </ul>
                           {exp.technologies.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                               {exp.technologies.map((tech) => (
@@ -112,7 +113,7 @@ export function Experience() {
                       </div>
                     </div>
 
-                    {/* Spacer for the other side */}
+                    {/* Spacer */}
                     <div className="hidden md:block md:w-1/2" />
                   </div>
                 </ScrollAnimate>
