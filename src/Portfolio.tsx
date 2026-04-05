@@ -95,18 +95,16 @@ export default function Portfolio() {
             className="px-6 py-16 bg-gray-900 dark:bg-gray-950 text-white"
           >
             <div className="max-w-5xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">
-                Let&apos;s Work Together
+              <h2 className="text-3xl font-bold mb-3">
+                Open to Work
               </h2>
-              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                I&apos;m always interested in new opportunities and exciting
-                projects. Let&apos;s connect and discuss how we can bring your
-                ideas to life.
+              <p className="text-gray-400 mb-8 text-sm">
+                Senior backend &amp; software engineering roles.
               </p>
               <Button size="lg" asChild>
                 <a href="mailto:tsatsarisgiorgos@gmail.com">
                   <Mail className="w-4 h-4 mr-2" />
-                  Get In Touch
+                  tsatsarisgiorgos@gmail.com
                 </a>
               </Button>
             </div>

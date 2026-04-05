@@ -2,10 +2,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Code2, BookOpen, Layers, MapPin } from "lucide-react";
 
 const quickFacts = [
-  { icon: BookOpen, label: "B.Sc. Informatics", sub: "Athens University of Economics & Business" },
-  { icon: Layers, label: "4 Years Experience", sub: "Full-stack & backend engineering" },
-  { icon: MapPin, label: "Athens, Greece", sub: "Open to remote opportunities" },
-  { icon: Code2, label: "200+ MRs Delivered", sub: "Across production codebases" },
+  {
+    icon: BookOpen,
+    label: "B.Sc. Informatics",
+    sub: "Athens University of Economics & Business",
+  },
+  {
+    icon: Layers,
+    label: "5 Years Experience",
+    sub: "Full-stack & backend engineering",
+  },
+  {
+    icon: MapPin,
+    label: "Athens, Greece",
+    sub: "Open to remote/hybrid opportunities",
+  },
+  { icon: Code2, label: "300+ MRs Merged", sub: "Across production codebases" },
 ];
 
 export function About() {
@@ -21,37 +33,46 @@ export function About() {
             {/* Left — narrative */}
             <div className="space-y-4">
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                I'm a software engineer who cares deeply about the craft. I hold a
-                B.Sc. in Informatics from AUEB and have spent 4 years building
-                production systems across e-commerce, government, and cybersecurity.
+                I&apos;m a software engineer with five years of production
+                experience across cybersecurity, e-commerce, and government
+                systems. I gravitate toward backend and distributed systems work
+                — the kind where design decisions compound over time and getting
+                them right actually matters. Right now I&apos;m the founding
+                backend engineer at a cybersecurity SaaS startup, building core
+                infrastructure from the ground up.
               </p>
               <p className="text-base text-gray-600 dark:text-gray-300">
-                My engineering philosophy centres on{" "}
+                Above all, I&apos;m pragmatic. I reach for{" "}
                 <span className="font-medium text-gray-900 dark:text-white">
                   Domain-Driven Design
                 </span>
                 ,{" "}
                 <span className="font-medium text-gray-900 dark:text-white">
-                  clean architecture
+                  CQRS
                 </span>
                 , and{" "}
                 <span className="font-medium text-gray-900 dark:text-white">
-                  test-driven development
+                  clean architecture
                 </span>{" "}
-                — not as buzzwords, but as practical tools for building systems that
-                remain maintainable as they grow.
+                because they help me understand and model business rules
+                accurately. The goal is always to solve the right problem, with
+                as little accidental complexity as possible.
               </p>
               <p className="text-base text-gray-600 dark:text-gray-300">
-                Outside of code, I read extensively on software architecture and
-                invest time in deepening my understanding of distributed systems,
-                event-driven patterns, and backend scalability.
+                I invest time in reading deeply — refactoring, design patterns,
+                architecture, TDD — and I bring that into daily work through
+                code reviews, architectural conversations, and a habit of asking
+                &ldquo;why&rdquo; before writing a line of code.
               </p>
             </div>
 
             {/* Right — quick facts */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {quickFacts.map(({ icon: Icon, label, sub }) => (
-                <Card key={label} className="hover:shadow-md transition-shadow duration-300">
+                <Card
+                  key={label}
+                  className="hover:shadow-md transition-shadow duration-300"
+                >
                   <CardContent className="p-4 flex items-start gap-3">
                     <div className="p-2 rounded-md bg-primary/10 shrink-0">
                       <Icon className="w-4 h-4 text-primary" />
@@ -60,7 +81,9 @@ export function About() {
                       <p className="font-semibold text-sm text-gray-900 dark:text-white">
                         {label}
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">{sub}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        {sub}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>

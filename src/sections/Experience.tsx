@@ -7,9 +7,9 @@ const experiences = [
     company: "Tashita Software Security",
     period: "May 2025 - Present",
     bullets: [
-      "Architecting the backend infrastructure of a cybersecurity SaaS product from the ground up",
-      "Defining API contracts, data models, and service boundaries using DDD and Ports & Adapters",
-      "Setting up CI/CD pipelines, containerisation, and deployment workflows",
+      "Designed and built the backend infrastructure of a cybersecurity SaaS product from scratch, making foundational architecture decisions that will shape the system for years — API design, service boundaries, data models, and event flows.",
+      "Applied Domain-Driven Design and Ports & Adapters to establish clear module boundaries early, keeping the codebase navigable and extensible as the product scope expands.",
+      "Owned the full delivery pipeline end-to-end: CI/CD setup, containerisation, deployment workflows, and the engineering standards the team will build on going forward.",
     ],
     technologies: [] as string[],
   },
@@ -18,9 +18,9 @@ const experiences = [
     company: "Hellenic Republic Ministry Of National Defence",
     period: "Oct 2024 - Sept 2025",
     bullets: [
-      "Resolved critical issues and shipped new features across the ministry's internal web applications",
-      "Enhanced an internal LLM-powered chatbot, improving response quality and system reliability",
-      "Proposed and implemented infrastructure improvements that increased system maintainability",
+      "Diagnosed and resolved critical bugs across mission-critical internal web applications used by ministry staff, reducing production incidents and improving system reliability.",
+      "Extended and improved an in-house LLM-powered chatbot, iterating on prompt architecture and backend integration to meaningfully increase response accuracy and uptime.",
+      "Proposed and delivered infrastructure improvements — including caching and containerisation changes — that reduced operational friction and improved long-term maintainability.",
     ],
     technologies: ["React", "LLM", "Flask", "Docker", "Redis", "PHP"],
   },
@@ -29,9 +29,9 @@ const experiences = [
     company: "Upstream",
     period: "Apr 2022 - Oct 2024",
     bullets: [
-      "Built core features of an in-house SaaS platform for SMS campaign creation, lead management, and event-based analytics — end-to-end from design to deployment",
-      "Integrated third-party APIs and delivered advanced dashboards and visitor-tracking tooling used by multiple enterprise clients",
-      "Championed DDD and TDD practices, contributed to architecture decisions, and led code reviews across the team",
+      "Built core product features of a high-traffic SaaS platform for SMS campaign management, lead tracking, and event-based analytics — taking ownership end-to-end from architecture through to production deployment.",
+      "Integrated multiple third-party APIs and delivered advanced reporting dashboards and visitor-tracking tooling actively used by enterprise clients across the platform.",
+      "Introduced and championed DDD and TDD practices across the engineering team, contributed to architecture reviews, and raised the bar for code quality through regular and substantive code reviews.",
     ],
     technologies: [
       "Typescript",

@@ -24,7 +24,7 @@ export function Hero() {
               Founding Software Engineer
             </p>
             <p className="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-              Backend Architecture & API Development — Node.js, TypeScript, React
+              Backend Architecture | Node.js - TypeScript - React
             </p>
           </div>
           <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400">
