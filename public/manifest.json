@@ -1,0 +1,13 @@
+{
+  "name": "George Tsatsaris Portfolio",
+  "short_name": "GT Portfolio",
+  "description": "Portfolio of George Tsatsaris, Founding Software Engineer",
+  "start_url": "/my-portfolio/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563EB",
+  "icons": [
+    { "src": "/my-portfolio/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/my-portfolio/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -1,6 +1,6 @@
 import Portfolio from "@/Portfolio";
 
-const jsonLd = {
+const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "George Tsatsaris",
@@ -29,12 +29,25 @@ const jsonLd = {
   },
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "George Tsatsaris Portfolio",
+  url: "https://tsatsarisg.github.io/my-portfolio",
+  description: "Portfolio of George Tsatsaris, Founding Software Engineer",
+  author: { "@type": "Person", name: "George Tsatsaris" },
+};
+
 export default function HomePage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <Portfolio />
     </>
