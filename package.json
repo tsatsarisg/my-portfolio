@@ -9,6 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "type-check": "tsc --noEmit",
+    "predeploy": "bash scripts/predeploy.sh",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {

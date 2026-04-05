@@ -1,52 +1,47 @@
-# my-portfolio
+# George Tsatsaris — Portfolio
 
-This repository is a personal portfolio website built with Vite, React, and TypeScript. It showcases projects, recommended books, courses, and other sections implemented with Tailwind CSS and Radix UI components.
+Personal portfolio site built with Next.js 16, deployed to GitHub Pages.
 
-Key points
+**Live site:** https://tsatsarisg.github.io/my-portfolio
 
-- Purpose: serve as a developer portfolio and showcase selected work and resources.
-- Theme: the site is dark-first. The light/white theme has been removed — the UI and documentation reflect a dark-only experience.
-- Routing: client-side routing with a ScrollToTop component that scrolls to the top on navigation.
+## Stack
 
-Tech stack
+- **Framework:** Next.js 16 (App Router, static export)
+- **Styling:** Tailwind CSS v4
+- **Language:** TypeScript
+- **Package manager:** pnpm
+- **Deployment:** GitHub Pages via GitHub Actions
 
-- Vite
-- React (TypeScript)
-- Tailwind CSS
-- @radix-ui/themes
-- lucide-react (icons)
-
-Local development
-
-1. Install dependencies
+## Local development
 
 ```bash
-npm install
+pnpm install
+pnpm dev
 ```
 
-2. Run the dev server
+Open [http://localhost:3000/my-portfolio](http://localhost:3000/my-portfolio).
 
-```bash
-npm run dev
-```
+## Scripts
 
-3. Build for production
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start dev server |
+| `pnpm build` | Build static export to `./out` |
+| `pnpm lint` | Run ESLint |
+| `pnpm type-check` | Run TypeScript check |
+| `pnpm predeploy` | Run lint + type-check + build locally |
 
-```bash
-npm run build
-```
+## CI/CD
 
-4. Preview the production build locally
+| Trigger | Workflow | What it does |
+|---------|----------|--------------|
+| Pull request → `main` | `ci.yml` | Lint, type-check, build |
+| Push to `main` | `deploy.yml` | Lint, type-check, build, deploy to GitHub Pages |
 
-```bash
-npm run preview
-```
+See [PUBLISHING.md](./PUBLISHING.md) for the full publishing workflow.
 
-Notes for maintainers
+## One-time GitHub setup
 
-- The project intentionally uses a dark-only theme. If you want to reintroduce a light theme, search for theme-related classes and the theme toggle component (e.g. `toggleTheme` in `App.tsx`) and re-add styles and state that control the light variant.
-- Navigation includes a small `ScrollToTop` helper (see `src/ScrollToTop.tsx`) — it ensures pages start at the top when users navigate.
+Before the deploy workflow works, set Pages source to GitHub Actions:
 
-License
-
-This repository is provided as-is. Add a license file if you want to publish it under a specific license.
+> Repository → Settings → Pages → Build and deployment → Source → **GitHub Actions**
