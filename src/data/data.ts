@@ -1,4 +1,27 @@
-export const courses = [
+export interface Course {
+  title: string;
+  instructor: string;
+  description: string;
+  category: string;
+  duration: number;
+  status: "Completed" | "In Progress" | "Not Started";
+}
+
+export interface Book {
+  title: string;
+  author: string;
+  description: string;
+  category: string;
+  rating: number;
+  status: "Read" | "Currently Reading" | "Want to Read" | "In Progress";
+  dateRead: string | null;
+  pages: number;
+  isbn: string;
+  keyTakeaways: string[];
+  review: string;
+}
+
+export const courses: Course[] = [
   {
     title: "The Complete JavaScript Course 2024: From Zero to Expert!",
     instructor: "Jonas Schmedtmann",
@@ -112,7 +135,7 @@ export const courses = [
   },
 ];
 
-export const books = [
+export const books: Book[] = [
   {
     title: "Refactoring",
     author: "Martin Fowler",

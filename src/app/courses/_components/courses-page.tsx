@@ -101,7 +101,9 @@ export default function CoursesPage() {
                   <span className="text-gray-600 dark:text-gray-300">
                     {course.duration} hrs
                   </span>
-                  <span className={`px-2 py-1 rounded font-medium ${getStatusColor(course.status)}`}>
+                  <span
+                    className={`px-2 py-1 rounded font-medium ${getStatusColor(course.status)}`}
+                  >
                     {course.status}
                   </span>
                 </div>
