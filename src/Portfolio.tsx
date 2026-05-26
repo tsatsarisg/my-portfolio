@@ -58,7 +58,7 @@ export default function Portfolio() {
             className="px-6 py-16 bg-gray-900 dark:bg-gray-950 text-white"
           >
             <div className="max-w-5xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-3">Open to Work</h2>
+              <h2 className="text-3xl font-bold mb-3">Get in touch</h2>
               <p className="text-gray-400 mb-8 text-sm">
                 Senior backend &amp; software engineering roles.
               </p>

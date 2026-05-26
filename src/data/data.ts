@@ -13,12 +13,8 @@ export interface Book {
   description: string;
   category: string;
   rating: number;
-  status: "Read" | "Currently Reading" | "Want to Read" | "In Progress";
-  dateRead: string | null;
   pages: number;
   isbn: string;
-  keyTakeaways: string[];
-  review: string;
 }
 
 export const courses: Course[] = [
@@ -137,43 +133,14 @@ export const courses: Course[] = [
 
 export const books: Book[] = [
   {
-    title: "Refactoring",
-    author: "Martin Fowler",
-    description:
-      "Explains how to improve existing codebases by incrementally refactoring without introducing bugs.",
-    category: "Programming",
-    rating: 4,
-    status: "Read",
-    dateRead: "2023-05-15",
-    pages: 448,
-    isbn: "978-0134757599",
-    keyTakeaways: [
-      "Refactoring improves design and readability",
-      "Small changes reduce risk",
-      "Tests are critical during refactoring",
-    ],
-    review:
-      "An essential reference when dealing with legacy code. Examples are highly practical.",
-  },
-  {
     title: "Clean Code",
     author: "Robert C. Martin",
     description:
       "A handbook of agile software craftsmanship that teaches how to write code that is easy to read, understand, and maintain.",
     category: "Programming",
     rating: 5,
-    status: "Read",
-    dateRead: "2023-01-15",
     pages: 464,
     isbn: "978-0132350884",
-    keyTakeaways: [
-      "Meaningful names make code self-documenting",
-      "Functions should be small and do one thing well",
-      "Comments should explain why, not what",
-      "Clean code is written by someone who cares",
-    ],
-    review:
-      "Essential reading for any developer. Uncle Bob's principles have fundamentally changed how I approach writing code.",
   },
   {
     title: "The Pragmatic Programmer",
@@ -182,113 +149,18 @@ export const books: Book[] = [
       "A classic book offering practical advice for programmers to continuously improve their skills and adaptability.",
     category: "Programming",
     rating: 5,
-    status: "Read",
-    dateRead: "2023-03-10",
     pages: 352,
     isbn: "978-0135957059",
-    keyTakeaways: [
-      "Care about your craft",
-      "Think critically and communicate clearly",
-      "Automate repetitive tasks",
-      "Invest in your knowledge portfolio",
-    ],
-    review:
-      "A timeless guide full of wisdom. Every developer should revisit it periodically.",
-  },
-
-  {
-    title: "Domain-Driven Design",
-    author: "Eric Evans",
-    description:
-      "Explores how to tackle complex software by aligning code with domain knowledge through models and ubiquitous language.",
-    category: "Architecture",
-    rating: 5,
-    status: "Read",
-    dateRead: "2023-10-10",
-    pages: 560,
-    isbn: "978-0321125217",
-    keyTakeaways: [
-      "Focus on the domain, not just technology",
-      "Use a ubiquitous language",
-      "Bounded contexts simplify complexity",
-    ],
-    review:
-      "The go-to book for understanding complex software systems. Dense but worth it.",
   },
   {
-    title: "Head First Design Patterns",
-    author: "Eric Freeman, Elisabeth Robson",
+    title: "Refactoring",
+    author: "Martin Fowler",
     description:
-      "An engaging introduction to design patterns using a visually rich, conversational style.",
-    category: "Design Patterns",
+      "Explains how to improve existing codebases by incrementally refactoring without introducing bugs.",
+    category: "Programming",
     rating: 4,
-    status: "Read",
-    dateRead: "2024-01-15",
-    pages: 694,
-    isbn: "978-1492078005",
-    keyTakeaways: [
-      "Patterns solve recurring problems in software design",
-      "Composition over inheritance",
-      "Encapsulation improves flexibility",
-    ],
-    review: "Fun and practical. Ideal for developers new to design patterns.",
-  },
-
-  {
-    title: "Test Driven Development: By Example",
-    author: "Kent Beck",
-    description:
-      "Introduces TDD by demonstrating how writing tests first leads to cleaner, more reliable code.",
-    category: "Testing",
-    rating: 4,
-    status: "Read",
-    dateRead: "2023-04-15",
-    pages: 220,
-    isbn: "978-0321146534",
-    keyTakeaways: [
-      "Write tests before code",
-      "Refactor in small steps",
-      "Tests provide confidence for changes",
-    ],
-    review:
-      "Clear, concise, and practical. TDD becomes approachable after this book.",
-  },
-  {
-    title: "Implementing Domain-Driven Design",
-    author: "Vaughn Vernon",
-    description:
-      "A practical guide to applying Domain-Driven Design principles with real-world examples and modern practices.",
-    category: "Architecture",
-    rating: 4,
-    status: "Read",
-    dateRead: "2024-08-15",
-    pages: 656,
-    isbn: "978-0321834577",
-    keyTakeaways: [
-      "DDD is both a design and collaboration approach",
-      "Strategic design helps manage complexity",
-    ],
-    review:
-      "Great for translating theory into practice. Complements Evans’ original work.",
-  },
-
-  {
-    title: "Strategic Monoliths and Microservices",
-    author: "Vaughn Vernon, Tomasz Jaskula",
-    description:
-      "Explores how to evolve software architectures intentionally, using monoliths and microservices strategically.",
-    category: "Architecture",
-    rating: 4,
-    status: "Read",
-    dateRead: "2025-01-15",
-    pages: 400,
-    isbn: "978-0137355467",
-    keyTakeaways: [
-      "Not every system needs microservices",
-      "Architectural decisions should align with business goals",
-    ],
-    review:
-      "A fresh perspective on choosing the right architecture for the right context.",
+    pages: 448,
+    isbn: "978-0134757599",
   },
   {
     title: "Clean Architecture",
@@ -297,53 +169,28 @@ export const books: Book[] = [
       "Guidelines on structuring software so that it is independent of frameworks, UI, databases, and external agents.",
     category: "Architecture",
     rating: 5,
-    status: "Read",
-    dateRead: "2023-05-01",
     pages: 432,
     isbn: "978-0134494169",
-    keyTakeaways: [
-      "Separation of concerns is key",
-      "Dependency inversion keeps systems flexible",
-      "Architectures should be testable and maintainable",
-    ],
-    review:
-      "A must-read for architects. Bridges design principles with practical patterns.",
   },
   {
-    title: "Scrum: The Art of Doing Twice the Work in Half the Time",
-    author: "Jeff Sutherland",
+    title: "Domain-Driven Design",
+    author: "Eric Evans",
     description:
-      "A look into the Scrum methodology, showing how it can dramatically increase productivity and team collaboration.",
-    category: "Agile",
-    rating: 4,
-    status: "Read",
-    dateRead: "2023-02-10",
-    pages: 256,
-    isbn: "978-0385346450",
-    keyTakeaways: [
-      "Scrum empowers teams to deliver faster",
-      "Frequent feedback improves outcomes",
-    ],
-    review:
-      "Great insights into agile thinking beyond just processes. Highly recommended.",
+      "Explores how to tackle complex software by aligning code with domain knowledge through models and ubiquitous language.",
+    category: "Architecture",
+    rating: 5,
+    pages: 560,
+    isbn: "978-0321125217",
   },
   {
-    title: "Elegant Objects",
-    author: "Yegor Bugayenko",
+    title: "Designing Data-Intensive Applications",
+    author: "Martin Kleppmann",
     description:
-      "Challenges conventional OOP practices and promotes a more elegant, object-oriented approach.",
-    category: "Object-Oriented Design",
-    rating: 3,
-    status: "Read",
-    dateRead: "2025-02-10",
-    pages: 268,
-    isbn: "978-1519166915",
-    keyTakeaways: [
-      "Avoid getters and setters",
-      "Objects should encapsulate behavior, not just data",
-    ],
-    review:
-      "Controversial but thought-provoking. Forces you to question common practices.",
+      "A deep dive into the principles and trade-offs behind reliable, scalable, and maintainable data systems, covering storage, replication, partitioning, and distributed processing.",
+    category: "Architecture",
+    rating: 5,
+    pages: 616,
+    isbn: "978-1449373320",
   },
   {
     title: "Patterns of Enterprise Application Architecture",
@@ -352,16 +199,58 @@ export const books: Book[] = [
       "Catalogues patterns used in enterprise applications to address common architectural challenges.",
     category: "Architecture",
     rating: 5,
-    status: "Read",
-    dateRead: "2024-12-15",
     pages: 533,
     isbn: "978-0321127420",
-    keyTakeaways: [
-      "Patterns provide reusable solutions",
-      "Layered architecture improves scalability",
-    ],
-    review:
-      "The definitive reference for enterprise-level software design patterns.",
+  },
+  {
+    title: "Software Architecture: The Hard Parts",
+    author: "Neal Ford, Mark Richards, Pramod Sadalage, Zhamak Dehghani",
+    description:
+      "A guide to navigating the toughest trade-offs in modern distributed architectures, covering decomposition, data ownership, and architectural decision records.",
+    category: "Architecture",
+    rating: 4,
+    pages: 460,
+    isbn: "978-1492086895",
+  },
+  {
+    title: "Implementing Domain-Driven Design",
+    author: "Vaughn Vernon",
+    description:
+      "A practical guide to applying Domain-Driven Design principles with real-world examples and modern practices.",
+    category: "Architecture",
+    rating: 4,
+    pages: 656,
+    isbn: "978-0321834577",
+  },
+  {
+    title: "Head First Design Patterns",
+    author: "Eric Freeman, Elisabeth Robson",
+    description:
+      "An engaging introduction to design patterns using a visually rich, conversational style.",
+    category: "Design Patterns",
+    rating: 4,
+    pages: 694,
+    isbn: "978-1492078005",
+  },
+  {
+    title: "Test Driven Development: By Example",
+    author: "Kent Beck",
+    description:
+      "Introduces TDD by demonstrating how writing tests first leads to cleaner, more reliable code.",
+    category: "Testing",
+    rating: 4,
+    pages: 220,
+    isbn: "978-0321146534",
+  },
+  {
+    title: "Strategic Monoliths and Microservices",
+    author: "Vaughn Vernon, Tomasz Jaskula",
+    description:
+      "Explores how to evolve software architectures intentionally, using monoliths and microservices strategically.",
+    category: "Architecture",
+    rating: 4,
+    pages: 400,
+    isbn: "978-0137355467",
   },
   {
     title: "Node.js Design Patterns",
@@ -370,15 +259,27 @@ export const books: Book[] = [
       "Shows how to write scalable and maintainable Node.js applications using proven design patterns.",
     category: "Backend",
     rating: 4,
-    status: "In Progress",
-    dateRead: null,
     pages: 520,
     isbn: "978-1839214110",
-    keyTakeaways: [
-      "Patterns improve code quality in Node.js",
-      "Use async patterns to handle concurrency",
-    ],
-    review:
-      "Excellent for advanced Node.js developers looking to improve structure and scalability.",
+  },
+  {
+    title: "Scrum: The Art of Doing Twice the Work in Half the Time",
+    author: "Jeff Sutherland",
+    description:
+      "A look into the Scrum methodology, showing how it can dramatically increase productivity and team collaboration.",
+    category: "Agile",
+    rating: 4,
+    pages: 256,
+    isbn: "978-0385346450",
+  },
+  {
+    title: "Elegant Objects",
+    author: "Yegor Bugayenko",
+    description:
+      "Challenges conventional OOP practices and promotes a more elegant, object-oriented approach.",
+    category: "Object-Oriented Design",
+    rating: 3,
+    pages: 268,
+    isbn: "978-1519166915",
   },
 ];
