@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Code2, BookOpen, Layers, MapPin } from "lucide-react";
+import { ShieldCheck, BookOpen, Layers, MapPin } from "lucide-react";
 
 const quickFacts = [
   {
@@ -17,7 +17,11 @@ const quickFacts = [
     label: "Athens, Greece",
     sub: "Open to remote/hybrid opportunities",
   },
-  { icon: Code2, label: "300+ MRs Merged", sub: "Across production codebases" },
+  {
+    icon: ShieldCheck,
+    label: "End-to-End Ownership",
+    sub: "From design decisions to production outcomes",
+  },
 ];
 
 export function About() {

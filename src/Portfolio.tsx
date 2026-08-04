@@ -54,10 +54,6 @@ export default function Portfolio() {
           >
             <div className="max-w-5xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-3">Get in touch</h2>
-              <p className="text-gray-400 mb-8 text-sm">
-                Open to senior backend &amp; software engineering roles —
-                remote or hybrid.
-              </p>
               <Button size="lg" asChild>
                 <a href="mailto:tsatsarisgiorgos@gmail.com">
                   <Mail className="w-4 h-4 mr-2" />

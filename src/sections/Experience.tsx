@@ -6,11 +6,7 @@ const experiences = [
     title: "Founding Backend Software Engineer",
     company: "Tashita Software Security",
     period: "May 2025 - Present",
-    bullets: [
-      "Designed and built the backend infrastructure of a cybersecurity SaaS product from scratch, making foundational architecture decisions that will shape the system for years — API design, service boundaries, data models, and event flows.",
-      "Applied Domain-Driven Design and Ports & Adapters to establish clear module boundaries early, keeping the codebase navigable and extensible as the product scope expands.",
-      "Owned the full delivery pipeline end-to-end: CI/CD setup, containerisation, deployment workflows, and the engineering standards the team will build on going forward.",
-    ],
+    bullets: ["More info coming soon."],
     technologies: [] as string[],
   },
   {
@@ -34,8 +30,8 @@ const experiences = [
       "Introduced and championed DDD and TDD practices across the engineering team, contributed to architecture reviews, and raised the bar for code quality through regular and substantive code reviews.",
     ],
     technologies: [
-      "Typescript",
-      "NodeJs",
+      "TypeScript",
+      "Node.js",
       "React",
       "MongoDB",
       "Kafka",
