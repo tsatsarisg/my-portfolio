@@ -1,3 +1,28 @@
+# ── Supply-chain hardening (https://pnpm.io/supply-chain-security) ──
+# Complements .npmrc (save-exact, ignore-scripts, strict-ssl).
+
+# Refuse any version published to the registry less than 7 days ago,
+# giving the ecosystem time to detect and unpublish malicious releases
+# (the 2026-08-04 keyv/Shai-Hulud attack was flagged within hours).
+minimumReleaseAge: 10080
+
+# Dependency lifecycle scripts (postinstall etc.) are blocked. Both
+# entries below were audited and neither is required, so both are false:
+#   sharp         → install/check.js only matters when no prebuilt
+#                   binary exists; darwin-arm64 and linux-x64 (CI) get
+#                   prebuilds via @img/* optional dependencies
+#   unrs-resolver → no-op check when prebuilt bindings exist
 allowBuilds:
-  sharp: true
-  unrs-resolver: true
+  sharp: false
+  unrs-resolver: false
+
+# Transitive dependencies must resolve from the registry — never from
+# git/tarball/URL sources injected by a compromised intermediate.
+blockExoticSubdeps: true
+
+# Refuse a version published with weaker provenance than the previous
+# release (a common account-takeover signature). Versions older than a
+# year (pre-provenance era) are exempt — takeovers are caught within
+# days, not months.
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 525600

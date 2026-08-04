@@ -9,7 +9,6 @@ import { Hero } from "./sections/Hero";
 import { Skills } from "./sections/Skills";
 import { Books } from "./sections/Books";
 import { Projects } from "./sections/Projects";
-import { Courses } from "./sections/Courses";
 
 export default function Portfolio() {
   return (
@@ -32,10 +31,6 @@ export default function Portfolio() {
         </ScrollAnimate>
 
         <ScrollAnimate variant="fade-up">
-          <Skills />
-        </ScrollAnimate>
-
-        <ScrollAnimate variant="fade-up">
           <Experience />
         </ScrollAnimate>
 
@@ -44,11 +39,11 @@ export default function Portfolio() {
         </ScrollAnimate>
 
         <ScrollAnimate variant="fade-up">
-          <Books />
+          <Skills />
         </ScrollAnimate>
 
         <ScrollAnimate variant="fade-up">
-          <Courses />
+          <Books />
         </ScrollAnimate>
 
         {/* Contact Section */}
@@ -60,7 +55,8 @@ export default function Portfolio() {
             <div className="max-w-5xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-3">Get in touch</h2>
               <p className="text-gray-400 mb-8 text-sm">
-                Senior backend &amp; software engineering roles.
+                Open to senior backend &amp; software engineering roles —
+                remote or hybrid.
               </p>
               <Button size="lg" asChild>
                 <a href="mailto:tsatsarisgiorgos@gmail.com">

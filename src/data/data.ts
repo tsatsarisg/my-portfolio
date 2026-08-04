@@ -17,6 +17,65 @@ export interface Book {
   isbn: string;
 }
 
+export interface Project {
+  title: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  github: string | null; // null = private repository
+}
+
+export const projects: Project[] = [
+  {
+    title: "Agent Harness",
+    tagline: "A mini agent runtime built to survive production",
+    description:
+      "The infrastructure layer around an LLM loop. Every model turn and tool call is a checkpointed, durable step backed by DBOS and Postgres — kill the process mid-run and it resumes where it stopped. A typed event log streams to a live inspector UI, privileged tools suspend the workflow until a human approves, and a supervisor mode fans out parallel read-only investigators.",
+    tech: ["TypeScript", "DBOS", "PostgreSQL", "WebSockets", "React"],
+    github: "https://github.com/tsatsarisg/agent-harness",
+  },
+  {
+    title: "Toolwright",
+    tagline: "A terminal AI agent built from first principles",
+    description:
+      "A general-purpose coding agent with no agent framework behind it — a custom streaming tool-calling loop on the Vercel AI SDK with an Ink terminal UI. Tiered approval gates anything with side effects, sessions persist to disk and resume, token-budget compaction keeps long conversations in context, and behaviour is regression-tested with single- and multi-turn evals.",
+    tech: ["TypeScript", "Node.js", "Vercel AI SDK", "Ink", "Laminar"],
+    github: "https://github.com/tsatsarisg/toolwright",
+  },
+  {
+    title: "Auth Server",
+    tagline: "A production-reference authentication service",
+    description:
+      "JWT authentication with refresh-token rotation and reuse detection, built as two bounded contexts — Identity and Authentication — whose one-way dependency is machine-enforced with lint rules. Every use case is a CQRS vertical slice, persistence swaps between Postgres and Mongo behind ports, and the key trade-offs are recorded as ADRs.",
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "MongoDB", "JWT"],
+    github: "https://github.com/tsatsarisg/auth-server",
+  },
+  {
+    title: "go-fit",
+    tagline: "A production-shaped Go backend",
+    description:
+      "An HTTP service for users and workouts that shows what pragmatic Go looks like: bounded contexts with ports and adapters, typed IDs, a real auth model, graceful shutdown, embedded SQL migrations, structured logging, a multi-stage container build, and CI that gates merges.",
+    tech: ["Go", "PostgreSQL", "Docker", "GitHub Actions"],
+    github: "https://github.com/tsatsarisg/go-fit",
+  },
+  {
+    title: "Soccer Tournaments",
+    tagline: "A modular monolith in .NET 10",
+    description:
+      "An API for tournaments, teams, players, matches, and standings. Three bounded contexts live as separate class libraries with their own DbContexts and never reference each other — cross-module calls go through ports implemented in a thin composition-root host. Vertical slices with CQS and Result-typed commands throughout, paired with a Next.js web client.",
+    tech: ["C#", ".NET 10", "EF Core", "PostgreSQL", "Next.js"],
+    github: null,
+  },
+  {
+    title: "Agrohands",
+    tagline: "A job platform for agricultural work",
+    description:
+      "A full-stack platform connecting farm employers with seasonal workers — job postings, worker profiles, search and pagination, JWT auth. The Express backend applies CQRS, DDD, and the result pattern; the React front end and the whole system run containerized end to end.",
+    tech: ["TypeScript", "Express", "React", "MongoDB", "Docker"],
+    github: null,
+  },
+];
+
 export const courses: Course[] = [
   {
     title: "The Complete JavaScript Course 2024: From Zero to Expert!",

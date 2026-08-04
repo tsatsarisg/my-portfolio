@@ -24,14 +24,26 @@ export function Hero() {
               Founding Software Engineer
             </p>
             <p className="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-              Backend Architecture | Node.js - TypeScript - React
+              Backend architecture &amp; distributed systems — Node.js ·
+              TypeScript · Go
             </p>
           </div>
           <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400">
             <MapPin className="w-4 h-4" />
-            <span>Athens, GRE</span>
+            <span>Athens, Greece</span>
           </div>
-          <div className="flex justify-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+            <Button asChild>
+              <a href="#projects">View projects</a>
+            </Button>
+            <Button variant="outline" asChild>
+              <a href="mailto:tsatsarisgiorgos@gmail.com">
+                <Mail className="w-4 h-4 mr-2" />
+                Get in touch
+              </a>
+            </Button>
+          </div>
+          <div className="flex justify-center gap-4 pt-2">
             <a
               href="https://github.com/tsatsarisg"
               target="_blank"
@@ -50,11 +62,6 @@ export function Hero() {
             >
               <Button variant="outline" size="icon">
                 <LinkedinIcon className="w-4 h-4" />
-              </Button>
-            </a>
-            <a href="mailto:tsatsarisgiorgos@gmail.com" aria-label="Send email">
-              <Button variant="outline" size="icon">
-                <Mail className="w-4 h-4" />
               </Button>
             </a>
           </div>

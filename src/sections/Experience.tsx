@@ -49,7 +49,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="px-6 py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="experience" className="px-6 py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">
@@ -59,62 +59,53 @@ export function Experience() {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-600" />
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-600" />
 
             <div className="space-y-12">
               {experiences.map((exp, index) => (
                 <ScrollAnimate
                   key={exp.company}
-                  variant={index % 2 === 0 ? "fade-right" : "fade-left"}
+                  variant="fade-up"
                   delay={index * 100}
                 >
-                  <div
-                    className={`relative flex flex-col md:flex-row ${
-                      index % 2 === 0 ? "md:flex-row-reverse" : ""
-                    }`}
-                  >
+                  <div className="relative">
                     {/* Timeline dot */}
-                    <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-gray-800 z-10" />
+                    <div className="absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-gray-900 z-10" />
 
                     {/* Content */}
-                    <div className="md:w-1/2 pl-8 md:pl-0">
-                      <div className={index % 2 === 0 ? "md:pr-12" : "md:pl-12"}>
-                        <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
-                          <div className="flex flex-col gap-2 mb-4">
-                            <Badge variant="outline" className="w-fit text-xs">
-                              {exp.period}
-                            </Badge>
-                            <h3 className="text-xl font-semibold">{exp.title}</h3>
-                            <p className="text-base font-medium text-muted-foreground">
-                              {exp.company}
-                            </p>
-                          </div>
-                          <ul className="space-y-2 mb-4">
-                            {exp.bullets.map((bullet) => (
-                              <li
-                                key={bullet}
-                                className="flex gap-2 text-sm text-muted-foreground"
-                              >
-                                <span className="text-primary mt-0.5 shrink-0">▸</span>
-                                {bullet}
-                              </li>
-                            ))}
-                          </ul>
-                          {exp.technologies.length > 0 && (
-                            <div className="flex flex-wrap gap-2">
-                              {exp.technologies.map((tech) => (
-                                <Badge key={tech} variant="secondary">
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          )}
+                    <div className="pl-8">
+                      <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+                        <div className="flex flex-col gap-2 mb-4">
+                          <Badge variant="outline" className="w-fit text-xs">
+                            {exp.period}
+                          </Badge>
+                          <h3 className="text-xl font-semibold">{exp.title}</h3>
+                          <p className="text-base font-medium text-muted-foreground">
+                            {exp.company}
+                          </p>
                         </div>
+                        <ul className="space-y-2 mb-4">
+                          {exp.bullets.map((bullet) => (
+                            <li
+                              key={bullet}
+                              className="flex gap-2 text-sm text-muted-foreground"
+                            >
+                              <span className="text-primary mt-0.5 shrink-0">▸</span>
+                              {bullet}
+                            </li>
+                          ))}
+                        </ul>
+                        {exp.technologies.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech) => (
+                              <Badge key={tech} variant="secondary">
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
-
-                    {/* Spacer */}
-                    <div className="hidden md:block md:w-1/2" />
                   </div>
                 </ScrollAnimate>
               ))}

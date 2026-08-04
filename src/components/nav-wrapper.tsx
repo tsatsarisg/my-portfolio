@@ -6,11 +6,10 @@ import { Nav } from "@/Nav";
 const SECTIONS = [
   "home",
   "about",
-  "skills",
   "experience",
   "projects",
+  "skills",
   "books",
-  "courses",
   "contact",
 ];
 

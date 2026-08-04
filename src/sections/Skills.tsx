@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 type SkillGroup = {
   label: string;
   description: string;
-  color: string;
   items: string[];
 };
 
@@ -11,59 +10,36 @@ const skillGroups: SkillGroup[] = [
   {
     label: "Architecture & Design",
     description: "Patterns I use to model business rules and manage real complexity",
-    color:
-      "bg-violet-100 text-violet-800 dark:bg-violet-900/50 dark:text-violet-200",
     items: [
       "Domain-Driven Design",
       "CQRS",
       "Event Sourcing",
-      "Clean Architecture",
-      "Hexagonal Architecture",
-      "Vertical Slice Architecture",
-      "Ports & Adapters",
-      "Strategic Design",
-      "Bounded Contexts",
-      "Aggregate Design",
       "Event-Driven Architecture",
-      "Result Pattern",
+      "Hexagonal Architecture (Ports & Adapters)",
+      "Vertical Slice Architecture",
       "Microservices",
     ],
   },
   {
     label: "Backend Engineering",
     description: "The stack I reach for and the runtime I think in",
-    color: "bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200",
-    items: [
-      "Node.js",
-      "NestJS",
-      "TypeScript",
-      "Go",
-      ".NET Core",
-      "REST APIs",
-      "Express",
-    ],
+    items: ["Node.js", "NestJS", "TypeScript", "Go", ".NET Core", "REST APIs"],
   },
   {
     label: "Data & Messaging",
     description: "Persistence, streaming, and inter-service communication",
-    color:
-      "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200",
     items: [
       "MongoDB",
       "PostgreSQL",
       "Kafka",
       "Redis",
-      "Valkey",
       "ElasticSearch",
       "ClickHouse",
-      "BullMQ",
     ],
   },
   {
     label: "Practices",
     description: "How I work and what I hold teams to",
-    color:
-      "bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200",
     items: [
       "Test-Driven Development",
       "Code Review",
@@ -76,15 +52,7 @@ const skillGroups: SkillGroup[] = [
   {
     label: "Frontend",
     description: "Enough to own a feature end-to-end",
-    color: "bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-200",
-    items: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "Vite",
-      "TanStack",
-    ],
+    items: ["React", "Next.js", "Tailwind CSS", "TypeScript", "TanStack"],
   },
 ];
 
@@ -120,7 +88,7 @@ export function Skills() {
                     {arch.items.map((skill) => (
                       <span
                         key={skill}
-                        className={`px-3 py-1 rounded-full text-sm font-medium ${arch.color}`}
+                        className="px-3 py-1 rounded-full text-sm font-medium bg-secondary text-secondary-foreground"
                       >
                         {skill}
                       </span>
@@ -150,7 +118,7 @@ export function Skills() {
                   {group.items.map((skill) => (
                     <span
                       key={skill}
-                      className={`px-3 py-1 rounded-full text-sm font-medium ${group.color}`}
+                      className="px-3 py-1 rounded-full text-sm font-medium bg-secondary text-secondary-foreground"
                     >
                       {skill}
                     </span>
